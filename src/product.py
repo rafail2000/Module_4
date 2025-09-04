@@ -10,15 +10,16 @@ class Product:
 
     @property
     def price(self):
+        """ Геттер для получения цены """
+
         return self.__price
+
 
     @price.setter
     def price(self, value):
-        if value <= 0:
-            print("Цена не должна быть нулевая или отрицательная")
-            return
-        if self.price < value:
-            pass
+        """ Сеттер для изменения цены """
+
+        self.__price = value
 
 
     @classmethod
