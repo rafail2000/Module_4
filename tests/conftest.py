@@ -17,7 +17,8 @@ def category_smartphones():
                           ),
                   Product(name="Iphone 15",
                           description="512GB, Gray space",
-                          price=210000.0,   quantity=8
+                          price=210000.0,
+                          quantity=8
                           ),
                   Product(name="Xiaomi Redmi Note 11",
                           description="1024GB, Синий",
