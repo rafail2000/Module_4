@@ -19,7 +19,22 @@ class Product:
     def price(self, value):
         """ Сеттер для изменения цены """
 
+        value = self.validate_price(value)
         self.__price = value
+
+
+    def validate_price(self, value):
+        """ Проверка цены """
+
+        if value <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+            return
+        elif value < self.price:
+            user_answer = input("Вы уверены в снижении цены? y/n").lower()
+            if user_answer == "y":
+                return value
+
+        return self.price
 
 
     @classmethod
