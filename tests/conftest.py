@@ -17,7 +17,8 @@ def category_smartphones():
                           ),
                   Product(name="Iphone 15",
                           description="512GB, Gray space",
-                          price=210000.0,   quantity=8
+                          price=210000.0,
+                          quantity=8
                           ),
                   Product(name="Xiaomi Redmi Note 11",
                           description="1024GB, Синий",
@@ -67,3 +68,13 @@ def file():
             }
         ]
     }]
+
+
+@pytest.fixture()
+def dictionary():
+    return {
+        "name": "55\" QLED 4K",
+        "description": "Фоновая подсветка",
+        "price": 123000.0,
+        "quantity": 7
+    }
