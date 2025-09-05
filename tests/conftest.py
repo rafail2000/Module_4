@@ -68,3 +68,13 @@ def file():
             }
         ]
     }]
+
+
+@pytest.fixture()
+def dictionary():
+    return {
+        "name": "55\" QLED 4K",
+        "description": "Фоновая подсветка",
+        "price": 123000.0,
+        "quantity": 7
+    }

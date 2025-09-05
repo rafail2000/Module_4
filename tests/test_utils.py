@@ -34,9 +34,9 @@ def test_create_object_from_json(file):
         вашим другом и помощником"
 
     assert hasattr(category, "products")
-    assert len(category.add_product) == 1
+    assert len(category.products) == 1
 
-    for product_tv in category.add_product:
+    for product_tv in category.products:
         assert isinstance(product_tv, Product)
         assert hasattr(product_tv, "name")
         assert hasattr(product_tv, "description")

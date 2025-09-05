@@ -42,5 +42,3 @@ class Category:
             product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
 
         return product_str
-
-

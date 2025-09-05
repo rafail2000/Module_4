@@ -7,21 +7,17 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
     @property
     def price(self):
         """ Геттер для получения цены """
 
         return self.__price
 
-
     @price.setter
     def price(self, value):
         """ Сеттер для изменения цены """
-
         value = self.validate_price(value)
         self.__price = value
-
 
     def validate_price(self, value):
         """ Проверка цены """
@@ -32,10 +28,9 @@ class Product:
         elif value < self.price:
             user_answer = input("Вы уверены в снижении цены? y/n").lower()
             if user_answer == "y":
-                return value
+                return self.price
 
-        return self.price
-
+        return value
 
     @classmethod
     def new_product(cls, product: dict, lst: list):
