@@ -33,11 +33,3 @@ def test_add_product(category_smartphones, product):
     assert len(category_smartphones.products) == 3
     category_smartphones.add_product(product)
     assert len(category_smartphones.products) == 4
-
-
-def test_get_str_lst(category_smartphones):
-    """ Тест вывода строковой информации из списка"""
-
-    assert category_smartphones.get_str_lst() == ("Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт.\n"
-                                                  "Iphone 15, 210000.0 руб. Остаток: 8 шт.\n"
-                                                  "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n")

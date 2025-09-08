@@ -33,16 +33,16 @@ class Product:
         return value
 
     @classmethod
-    def new_product(cls, product: dict, lst: list):
+    def new_product(cls, product: dict, lst: list=None):
         """ Получение экземпляра класса Product и поиск товаров с похожим наименованием """
-
-        for i in lst:
-            if i.name == product["name"]:
-                name = product["name"]
-                description = product["description"]
-                price = i.price if i.price >= product["price"]\
-                    else product["price"]
-                quantity = i.quantity + product["quantity"]
-                return cls(name, description, price, quantity)
+        if lst != None:
+            for i in lst:
+                if i.name == product["name"]:
+                    name = product["name"]
+                    description = product["description"]
+                    price = i.price if i.price >= product["price"]\
+                        else product["price"]
+                    quantity = i.quantity + product["quantity"]
+                    return cls(name, description, price, quantity)
 
         return cls(**product)

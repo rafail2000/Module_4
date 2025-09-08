@@ -20,7 +20,11 @@ class Category:
     def products(self) -> list:
         """ Геттер для вывода списка объектов класса Product"""
 
-        return self.__products
+        product_str = ""
+        for product in self.products:
+            product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+
+        return product_str
 
     @products.setter
     def products(self, product: Product) -> None:
@@ -33,12 +37,3 @@ class Category:
         """ Метод для записи объекта класса Product в список self.__products """
 
         self.products = product
-
-    def get_str_lst(self):
-        """ Возврат строковой информации из self.__products """
-
-        product_str = ""
-        for product in self.products:
-            product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
-
-        return product_str
