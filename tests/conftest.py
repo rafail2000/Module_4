@@ -2,9 +2,10 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.product_iterator import ProductIterator
 
 
-@pytest.fixture()
+@pytest.fixture
 def category_smartphones():
     return Category(
         name="Смартфоны",
@@ -29,7 +30,7 @@ def category_smartphones():
     )
 
 
-@pytest.fixture()
+@pytest.fixture
 def category_tv():
     return Category(
         name="Телевизоры",
@@ -44,7 +45,7 @@ def category_tv():
     )
 
 
-@pytest.fixture()
+@pytest.fixture
 def product():
     return Product(name="Samsung Galaxy C23 Ultra",
                    description="256GB, Серый цвет, 200MP камера",
@@ -53,7 +54,7 @@ def product():
                    )
 
 
-@pytest.fixture()
+@pytest.fixture
 def file():
     return [{
         "name": "Телевизоры",
@@ -70,7 +71,7 @@ def file():
     }]
 
 
-@pytest.fixture()
+@pytest.fixture
 def dictionary():
     return {
         "name": "55\" QLED 4K",
@@ -78,3 +79,18 @@ def dictionary():
         "price": 123000.0,
         "quantity": 7
     }
+
+
+@pytest.fixture
+def lst_products():
+    return [Product(name="55\" QLED 4K",
+                    description="Фоновая подсветка",
+                    price=123000.0,
+                    quantity=7
+                    )
+            ]
+
+
+@pytest.fixture
+def product_iterator(category_smartphones):
+    return ProductIterator(category_smartphones)
