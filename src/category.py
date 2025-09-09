@@ -16,13 +16,18 @@ class Category:
         Category.product_count += len(products) if products\
             else 0
 
+    def __str__(self):
+        """ Дандер метод для строкового вывода атрибутов """
+
+        return f"{self.name}, количество продуктов: {self.product_count} шт."
+
     @property
     def products(self) -> list:
         """ Геттер для вывода списка объектов класса Product"""
 
         product_str = ""
         for product in self.__products:
-            product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            product_str += f"{str(product)}\n"
 
         return product_str
 

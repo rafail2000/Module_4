@@ -7,6 +7,16 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        """ Дандер метод для строкового вывода атрибутов """
+
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        """ Дандер метод для сложения продуктов """
+
+        return self.price * self.quantity + other.price * other.quantity
+
     @property
     def price(self):
         """ Геттер для получения цены """
@@ -16,6 +26,7 @@ class Product:
     @price.setter
     def price(self, value):
         """ Сеттер для изменения цены """
+
         value = self.validate_price(value)
         self.__price = value
 
@@ -33,9 +44,10 @@ class Product:
         return value
 
     @classmethod
-    def new_product(cls, product: dict, lst: list=None):
+    def new_product(cls, product: dict, lst: list = None):
         """ Получение экземпляра класса Product и поиск товаров с похожим наименованием """
-        if lst != None:
+
+        if lst is not None:
             for i in lst:
                 if i.name == product["name"]:
                     name = product["name"]

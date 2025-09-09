@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from src.product import Product
 
 
@@ -27,19 +29,53 @@ def test_products_list_setter(capsys, product):
     assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
 
 
-def test_new_product(dictionary, category_tv):
-    lst = category_tv.products
-    res = category_tv.products[0].new_product(dictionary, lst)
+# Пример теста для метода validate_price
+def test_validate_price_decrease(product):
+    """ Попытка снизить цену, при этом имитируем ввод 'y' """
+
+    with patch('builtins.input', return_value='y'):
+        new_price = 50
+        validated_price = product.validate_price(new_price)
+        print(f"Validated price: {validated_price}")
+        assert validated_price == product.price
+
+
+def test_validate_price_no_decrease(product):
+    """ Попытка снизить цену, имитируем ввод 'n' """
+
+    with patch('builtins.input', return_value='n'):
+        new_price = 50
+        validated_price = product.validate_price(new_price)
+        print(f"Validated price: {validated_price}")
+        assert validated_price == new_price
+
+
+def test_new_product(dictionary, lst_products):
+    """ Тесты функции new_product """
+
+    res = lst_products[0].new_product(dictionary, lst_products)
     assert isinstance(res, Product)
     assert res.price == 123000.0
     assert res.quantity == 14
 
     dictionary["price"] = 5000
-    res = category_tv.products[0].new_product(dictionary, lst)
+    res = lst_products[0].new_product(dictionary, lst_products)
     assert res.price == 123000.0
     assert res.quantity == 14
 
     dictionary["name"] = "new_product"
-    res = category_tv.products[0].new_product(dictionary, lst)
+    res = lst_products[0].new_product(dictionary, lst_products)
     assert res.price == 5000
     assert res.quantity == 7
+
+
+def test_magic_product_str(product):
+    """ Тесты магического метода класса Product """
+
+    assert str(product) == "Samsung Galaxy C23 Ultra, 180000.0 руб. Остаток: 5 шт."
+
+
+def test_magic_product_add(product):
+    """ Тесты магического метода класса Product """
+
+    assert product + product == 1800000.0
