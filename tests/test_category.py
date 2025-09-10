@@ -9,8 +9,8 @@ def test_category_init(category_smartphones, category_tv):
     assert category_smartphones.category_count == 2
     assert category_tv.category_count == 2
 
-    assert category_smartphones.product_count == 4
-    assert category_tv.product_count == 4
+    assert category_smartphones.product_count == 34
+    assert category_tv.product_count == 34
 
 
 def test_products_list_getter(category_smartphones, product):
