@@ -1,5 +1,7 @@
 from unittest.mock import patch
 
+import pytest
+
 from src.product import Product
 
 
@@ -79,3 +81,60 @@ def test_magic_product_add(product):
     """ Тесты магического метода класса Product """
 
     assert product + product == 1800000.0
+
+
+def test_magic_product_add_error(product):
+    """ Тесты магического метода класса Product ошибка TypeError"""
+    with pytest.raises(TypeError):
+        result = product + 1
+
+
+def test_smartphone_init(smartphone_product1):
+    """ Тесты инициализации класса Smartphone """
+
+    assert smartphone_product1.name == "Samsung Galaxy S23 Ultra"
+    assert smartphone_product1.description == "256GB, Серый цвет, 200MP камера"
+    assert smartphone_product1.price == 180000.0
+    assert smartphone_product1.quantity == 5
+    assert smartphone_product1.efficiency == 95.5
+    assert smartphone_product1.model == "S23 Ultra"
+    assert smartphone_product1.memory == 256
+    assert smartphone_product1.color == "Серый"
+
+
+def test_magic_smartphone_add(smartphone_product1, smartphone_product2):
+    """ Тесты магического метода класса Smartphone """
+
+    assert smartphone_product1 + smartphone_product2 == 2580000.0
+
+
+def test_magic_smartphone_add_error(smartphone_product1):
+    """ Тесты магического метода класса Smartphone ошибка TypeError"""
+
+    with pytest.raises(TypeError):
+        result = smartphone_product1 + 1
+
+
+def test_lawn_grass_init(lawn_grass_product1):
+    """ Тесты инициализации класса LawnGrass """
+
+    assert lawn_grass_product1.name == "Газонная трава"
+    assert lawn_grass_product1.description == "Элитная трава для газона"
+    assert lawn_grass_product1.price == 500.0
+    assert lawn_grass_product1.quantity == 20
+    assert lawn_grass_product1.country == "Россия"
+    assert lawn_grass_product1.germination_period == "7 дней"
+    assert lawn_grass_product1.color == "Зеленый"
+
+
+def test_magic_lawn_grass_add(lawn_grass_product1, lawn_grass_product2):
+    """ Тесты магического метода класса LawnGrass """
+
+    assert lawn_grass_product1 + lawn_grass_product2 == 16750.0
+
+
+def test_magic_lawn_grass_add_error(lawn_grass_product1):
+    """ Тесты магического метода класса LawnGrass ошибка TypeError"""
+
+    with pytest.raises(TypeError):
+        result = lawn_grass_product1 + 1

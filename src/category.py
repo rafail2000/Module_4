@@ -35,8 +35,11 @@ class Category:
     def products(self, product: Product) -> None:
         """ Ceттер для записи объекта класса Product в список self.__products """
 
-        Category.product_count += 1
-        self.__products.append(product)
+        if isinstance(product, Product):
+            Category.product_count += 1
+            self.__products.append(product)
+        else:
+            raise TypeError
 
     def add_product(self, product: Product) -> None:
         """ Метод для записи объекта класса Product в список self.__products """

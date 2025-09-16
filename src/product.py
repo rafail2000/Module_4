@@ -1,5 +1,5 @@
 class Product:
-    """ Класс информации о продукте"""
+    """ Класс информации о продукте """
 
     def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
         self.name = name
@@ -15,7 +15,9 @@ class Product:
     def __add__(self, other):
         """ Дандер метод для сложения продуктов """
 
-        return self.price * self.quantity + other.price * other.quantity
+        if type(other) is Product:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
 
     @property
     def price(self):
@@ -58,3 +60,53 @@ class Product:
                     return cls(name, description, price, quantity)
 
         return cls(**product)
+
+
+class Smartphone(Product):
+    """ Класс смартфон """
+
+    def __init__(self, name: str,
+                 description: str,
+                 price: float,
+                 quantity: int,
+                 efficiency: float,
+                 model: str,
+                 memory: int,
+                 color: str
+                 ) -> None:
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.color = color
+
+    def __add__(self, other):
+        """ Дандер метод для сложения продуктов """
+
+        if type(other) is Smartphone:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
+
+
+class LawnGrass(Product):
+    """ Класс трава газонная """
+
+    def __init__(self, name: str,
+                 description: str,
+                 price: float,
+                 quantity: int,
+                 country: str,
+                 germination_period: str,
+                 color: str
+                 ) -> None:
+        super().__init__(name, description, price, quantity)
+        self.country = country
+        self.germination_period = germination_period
+        self.color = color
+
+    def __add__(self, other):
+        """ Дандер метод для сложения продуктов """
+
+        if type(other) is LawnGrass:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError

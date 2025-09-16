@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_category_init(category_smartphones, category_tv):
     """ Тесты инициализации класса Category """
 
@@ -25,6 +28,13 @@ def test_products_list_setter(category_smartphones, product):
     assert category_smartphones.products.count("\n") == 3
     category_smartphones.products = product
     assert category_smartphones.products.count("\n") == 4
+
+
+def test_products_list_setter_error(category_smartphones):
+    """ Тесты сеттера products на возникновение ошибки TypeError"""
+
+    with pytest.raises(TypeError):
+        result = category_smartphones.products = 1
 
 
 def test_add_product(category_smartphones, product):
