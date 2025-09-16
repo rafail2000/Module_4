@@ -15,7 +15,9 @@ class Product:
     def __add__(self, other):
         """ Дандер метод для сложения продуктов """
 
-        return self.price * self.quantity + other.price * other.quantity
+        if type(other) is Product:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
 
     @property
     def price(self):
@@ -78,6 +80,13 @@ class Smartphone(Product):
         self.memory = memory
         self.color = color
 
+    def __add__(self, other):
+        """ Дандер метод для сложения продуктов """
+
+        if type(other) is Smartphone:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
+
 
 class LawnGrass(Product):
     """ Класс трава газонная """
@@ -94,3 +103,10 @@ class LawnGrass(Product):
         self.country = country
         self.germination_period = germination_period
         self.color = color
+
+    def __add__(self, other):
+        """ Дандер метод для сложения продуктов """
+
+        if type(other) is LawnGrass:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
