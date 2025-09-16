@@ -79,3 +79,28 @@ def test_magic_product_add(product):
     """ Тесты магического метода класса Product """
 
     assert product + product == 1800000.0
+
+
+def test_smartphone_init(smartphone_product1):
+    """ Тесты инициализации класса Smartphone """
+
+    assert smartphone_product1.name == "Samsung Galaxy S23 Ultra"
+    assert smartphone_product1.description == "256GB, Серый цвет, 200MP камера"
+    assert smartphone_product1.price == 180000.0
+    assert smartphone_product1.quantity == 5
+    assert smartphone_product1.efficiency == 95.5
+    assert smartphone_product1.model == "S23 Ultra"
+    assert smartphone_product1.memory == 256
+    assert smartphone_product1.color == "Серый"
+
+
+def test_lawn_grass_init(lawn_grass_product1):
+    """ Тесты инициализации класса LawnGrass """
+
+    assert lawn_grass_product1.name == "Газонная трава"
+    assert lawn_grass_product1.description == "Элитная трава для газона"
+    assert lawn_grass_product1.price == 500.0
+    assert lawn_grass_product1.quantity == 20
+    assert lawn_grass_product1.country == "Россия"
+    assert lawn_grass_product1.germination_period == "7 дней"
+    assert lawn_grass_product1.color == "Зеленый"
