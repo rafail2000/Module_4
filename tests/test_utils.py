@@ -35,4 +35,3 @@ def test_create_object_from_json(file):
 
     assert hasattr(category, "products")
     assert category.products.count("\n") == 1
-

@@ -1,7 +1,24 @@
+from abc import ABC
+
 from src.product import Product
 
 
-class Category:
+class OrderCategoryAbstract(ABC):
+    """ Абстрактный класс для Заказа и Категории """
+
+    pass
+
+
+class Order(OrderCategoryAbstract):
+    """ Класс Заказ """
+
+    def __init__(self, link: str, quantity: int, price: float) -> None:
+        self.link = link
+        self.quantity = quantity
+        self.price = price
+
+
+class Category(OrderCategoryAbstract):
     """ Класс информации о категории товаров, количестве категорий и количестве товаров"""
 
     category_count = 0

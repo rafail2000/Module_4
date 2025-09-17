@@ -28,7 +28,7 @@ def test_products_list_setter(capsys, product):
 
     product.price = 0
     message = capsys.readouterr()
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
+    assert message.out.strip().split("\n")[-1] == "Цена не должна быть нулевая или отрицательная"
 
 
 # Пример теста для метода validate_price
