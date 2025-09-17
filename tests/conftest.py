@@ -125,22 +125,22 @@ def smartphone_product2():
 @pytest.fixture
 def lawn_grass_product1():
     return LawnGrass(name="Газонная трава",
-                      description="Элитная трава для газона",
-                      price=500.0,
-                      quantity=20,
-                      country="Россия",
-                      germination_period="7 дней",
-                      color="Зеленый"
-                      )
+                     description="Элитная трава для газона",
+                     price=500.0,
+                     quantity=20,
+                     country="Россия",
+                     germination_period="7 дней",
+                     color="Зеленый"
+                     )
 
 
 @pytest.fixture
 def lawn_grass_product2():
     return LawnGrass(name="Газонная трава 2",
-                      description="Выносливая трава",
-                      price=450.0,
-                      quantity=15,
-                      country="США",
-                      germination_period="5 дней",
-                      color="Темно-зеленый"
-                      )
+                     description="Выносливая трава",
+                     price=450.0,
+                     quantity=15,
+                     country="США",
+                     germination_period="5 дней",
+                     color="Темно-зеленый"
+                     )

@@ -1,4 +1,26 @@
-class Product:
+from abc import ABC, abstractmethod
+
+from src.print_mixin import PrintMixin
+
+
+class BaseProduct(ABC):
+    """ Абстрактный класс Продукта """
+
+    @abstractmethod
+    def validate_price(self, value):
+        """ Абстрактный метод проверки цены """
+
+        pass
+
+    @classmethod
+    @abstractmethod
+    def new_product(cls, product, lst):
+        """ Абстрактный метод получение экземпляра класса Product и поиск товаров с похожим наименованием """
+
+        pass
+
+
+class Product(BaseProduct, PrintMixin):
     """ Класс информации о продукте """
 
     def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
@@ -6,6 +28,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         """ Дандер метод для строкового вывода атрибутов """
