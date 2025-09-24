@@ -144,3 +144,13 @@ def lawn_grass_product2():
                      germination_period="5 дней",
                      color="Темно-зеленый"
                      )
+
+
+@pytest.fixture
+def category_zero_products():
+    return Category(
+        name="Телевизоры",
+        description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим"
+                    "другом и помощником",
+        products=[]
+    )

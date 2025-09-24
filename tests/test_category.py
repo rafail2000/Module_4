@@ -50,3 +50,10 @@ def test_magic_category_str(category_smartphones):
 
     category_smartphones.product_count = 3
     assert str(category_smartphones) == "Смартфоны, количество продуктов: 3 шт."
+
+
+def test_middle_price(category_smartphones, category_zero_products):
+    """ Тесты для проверки функции middle_price"""
+
+    assert category_smartphones.middle_price() == 111629.63
+    assert category_zero_products.middle_price() == 0
