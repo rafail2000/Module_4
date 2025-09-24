@@ -1,5 +1,7 @@
 import pytest
 
+from src.product import Product
+
 
 def test_category_init(category_smartphones, category_tv):
     """ Тесты инициализации класса Category """
@@ -57,3 +59,19 @@ def test_middle_price(category_smartphones, category_zero_products):
 
     assert category_smartphones.middle_price() == 111629.63
     assert category_zero_products.middle_price() == 0
+
+
+def test_custom_exception(capsys, category_smartphones):
+    """ Тесты для проверки класса ZeroProductQuantity """
+
+    category_smartphones.products = Product(name="Samsung Galaxy C23 Ultra",
+                                            description="256GB, Серый цвет, 200MP камера",
+                                            price=180000.0,
+                                            quantity=0
+                                            )
+
+    message = capsys.readouterr()
+    assert message.out.strip().split("\n")[-2] == "Нельзя добавлять продукт с нулевым кол-вом"
+    assert message.out.strip().split("\n")[-1] == "Операция выполнена"
+
+
