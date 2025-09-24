@@ -73,5 +73,3 @@ def test_custom_exception(capsys, category_smartphones):
     message = capsys.readouterr()
     assert message.out.strip().split("\n")[-2] == "Нельзя добавлять продукт с нулевым кол-вом"
     assert message.out.strip().split("\n")[-1] == "Операция выполнена"
-
-
