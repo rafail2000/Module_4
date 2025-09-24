@@ -138,3 +138,14 @@ def test_magic_lawn_grass_add_error(lawn_grass_product1):
 
     with pytest.raises(TypeError):
         result = lawn_grass_product1 + 1
+
+
+def test_product_zero_quantity():
+    """ Тесты при добавлении в класс Product товар с нулевым кол-вом """
+
+    with pytest.raises(ValueError):
+        Product(name="Samsung Galaxy C23 Ultra",
+                description="256GB, Серый цвет, 200MP камера",
+                price=180000.0,
+                quantity=-1
+                )
